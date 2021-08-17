@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.deploy.talk}}
+  labels:
+    app: {{.Values.app.talkApp}}
+spec:
+  selector:
+    matchLabels:
+      app: {{.Values.app.talkApp}}
+      tier: {{.Values.tier.server}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.app.talkApp}}
+        tier: {{.Values.tier.server}}
+    spec:
+      containers:
+        - name: {{.Values.app.talkApp}}
+          image: {{.Values.images.talk}}
+          ports:
+            - containerPort: {{.Values.port.talkPort}}
+              hostPort:  {{.Values.port.talkPort}}
+          readinessProbe:
+            periodSeconds: 60
+            httpGet:
+              port: {{.Values.port.talkPort}}
+              path: {{.Values.path.healthCheck.talkPath}}
+              scheme: HTTP
+
+

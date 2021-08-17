@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.deploy.contents}}
+  labels:
+    app: {{.Values.app.contentsApp}}
+spec:
+  selector:
+    matchLabels:
+      app: {{.Values.app.contentsApp}}
+      tier: {{.Values.tier.server}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.app.contentsApp}}
+        tier: {{.Values.tier.server}}
+    spec:
+      containers:
+        - name: {{.Values.app.contentsApp}}
+          image: {{.Values.images.contents}}
+          ports:
+            - containerPort: {{.Values.port.contentsPort}}
+              hostPort:  {{.Values.port.contentsPort}}
+          readinessProbe:
+            periodSeconds: 60
+
+            httpGet:
+              port: {{.Values.port.contentsPort}}
+              path: {{.Values.path.healthCheck.contentsPath}}
+              scheme: HTTP
+
+

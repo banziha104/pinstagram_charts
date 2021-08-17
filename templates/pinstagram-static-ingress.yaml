@@ -1,0 +1,104 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{.Values.app.pinstagramNetworkApp}}
+  annotations:
+    {{ if eq .Values.level "prod"}}
+    kubernetes.io/ingresss.global-static-ip-name: pinstagram-static-ip
+    networking.gke.io/managed-certificates: {{.Values.ssl.appName}}
+    kubernetes.io/ingress.class: "gce"
+    {{else}}
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    {{end}}
+  labels:
+    app: {{.Values.app.pinstagramApp}}
+spec:
+  rules:
+    - http:
+        paths:
+          - path: {{.Values.path.authPath}}
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: {{.Values.service.authService}}
+              servicePort: {{.Values.port.authPort}}
+          - path: {{.Values.path.contentsPath}}
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: {{.Values.service.contentsService}}
+              servicePort: {{.Values.port.contentsPort}}
+          - path: {{.Values.path.geoPath}}
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: {{.Values.service.geoService}}
+              servicePort: {{.Values.port.geoPort}}
+          - path: {{.Values.path.talkPath}}
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: {{.Values.service.talkService}}
+              servicePort: {{.Values.port.talkPort}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.service.authService}}
+  labels:
+    app: {{.Values.app.authApp}}
+spec:
+  type : NodePort
+  selector:
+    app: {{.Values.app.authApp}}
+    tier: {{.Values.tier.server}}
+  ports:
+    - port: {{.Values.port.authPort}}
+      targetPort: {{.Values.port.authPort}}
+      protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.service.contentsService}}
+  labels:
+    app: {{.Values.app.contentsApp}}
+spec:
+  type : NodePort
+  selector:
+    app: {{.Values.app.contentsApp}}
+    tier: {{.Values.tier.server}}
+  ports:
+    - port: {{.Values.port.contentsPort}}
+      targetPort: {{.Values.port.contentsPort}}
+      protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.service.geoService}}
+  labels:
+    app: {{.Values.app.geoApp}}
+spec:
+  type : NodePort
+  selector:
+    app: {{.Values.app.geoApp}}
+    tier: {{.Values.tier.server}}
+  ports:
+    - port: {{.Values.port.geoPort}}
+      targetPort: {{.Values.port.geoPort}}
+      protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.service.talkService}}
+  labels:
+    app: {{.Values.app.talkApp}}
+spec:
+  type : NodePort
+  selector:
+    app: {{.Values.app.talkApp}}
+    tier: {{.Values.tier.server}}
+  ports:
+    - port: {{.Values.port.talkPort}}
+      targetPort: {{.Values.port.talkPort}}
+      protocol: TCP
+

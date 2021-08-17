@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  {{.Values.deploy.auth}}
+  labels:
+    app: {{.Values.app.authApp}}
+spec:
+  selector:
+    matchLabels:
+      app: {{.Values.app.authApp}}
+      tier: {{.Values.tier.server}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.app.authApp}}
+        tier: {{.Values.tier.server}}
+    spec:
+      containers:
+        - name: {{.Values.app.authApp}}
+          image: {{.Values.images.auth}}
+          ports:
+            - containerPort: {{.Values.port.authPort}}
+              hostPort:  {{.Values.port.authPort}}
+          readinessProbe:
+            periodSeconds: 60
+            httpGet:
+              port: {{.Values.port.authPort}}
+              path: {{.Values.path.healthCheck.authPath}}
+              scheme: HTTP
+

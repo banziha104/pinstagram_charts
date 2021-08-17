@@ -1,0 +1,58 @@
+level: "prod"
+
+project:
+  mainIngress: pinstagram-static-main-ingress
+  testProject: pinstargram-test-project
+
+app:
+  pinstagramNetworkApp: pinstagram-network-app
+  pinstagramApp: pinstagram-app
+  authApp: auth-app
+  geoApp: geo-app
+  contentsApp: contents-app
+  talkApp: talk-app
+  defaultApp: default-app
+
+service:
+  defaultBackend: defaultbackend
+  staticService: pinstagram-static-service
+  authService: auth-service
+  contentsService: contents-service
+  geoService: geo-service
+  talkService: talk-service
+
+deploy:
+  auth: auth-deploy
+  contents: contents-deploy
+  geo: geo-deploy
+  talk: talk-deploy
+path:
+  authPath: /auth/*
+  contentsPath: /contents/*
+  geoPath: /geometry/*
+  talkPath: /talk/*
+  healthCheck:
+    authPath: /auth/healthCheck
+    contentsPath: /contents/healthCheck
+    geoPath: /geometry/healthCheck
+    talkPath: /talk/healthCheck
+port:
+  frontPort: 80
+  defaultPort: 8080
+  authPort: 8081
+  contentsPort: 8082
+  geoPort: 8083
+  talkPort: 8084
+
+tier:
+  server: server
+
+ssl:
+  domain: www.coguri.shop
+  appName: cert-app
+
+images:
+  auth: gcr.io/eminent-nation-320908/pinstagram-auth:0.0.9
+  contents: gcr.io/eminent-nation-320908/pinstagram-contents:0.0.4
+  geo: gcr.io/eminent-nation-320908/pinstagram-geo:0.0.5
+  talk: gcr.io/eminent-nation-320908/pinstagram-talk:0.0.14
