@@ -23,11 +23,6 @@
 | DNS                     | Google ManagedCertificate            |                |
 | Database                | Google SQL                           |                |
 
-- 적용 예정 
-    - Service Mash : istio (아직 GKE에서는 Beta)
-    - Monitoring : Prometheus & Grafana(시각화)
-
-
 ## 전체 아키텍쳐
 
 - ![architecture](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/architecture.png)
@@ -38,8 +33,18 @@
 - [Service](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/02_Service.md) 
 - [Deployment](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/03_Deployment.md)
 
+## 기술부채
+
+> 적용할 예정이 있는 부분입니다
+
+- Develop 
+  - Scaffold : 단일 컨테이너로는 사용해보았는데, Helm과 연동방법을 아직 찾지 못해서 미뤄두었습니다.
+- Production
+  - CI/CD : Jenkins와 GCP Pipeline을 이용한 배포 자동화 (비용문제가..)
+  - Service Mash : istio (아직 GKE에서는 Beta)
+  - Monitoring : Prometheus & Grafana(시각화)
+
 ## Inpression
 
-- 기존에 현업에서는 Spring Boot와 Stomp를 이용하여서 개발하였었는데, 이번에 최대한 가볍게 만들어보고자 Node.js를 활용해보았습니다.
-- 충분히 적은량의 코드로도 퍼포먼스를 낼 수 있어서 좋았습니다.
-- 다만 현재는 한개의 이벤트를 이용하고 있어 문제가 안되지만, 조금 소켓의 영향이 커진다면 TypeScript로 엄격하게 검사할 필요가 있어보입니다.
+- 평소에는 AWS를 이용하다 GCP를 이용해서 처음 개발해보았는데 생각보다 퍼포먼스가 나쁘지않습니다. 비용은 좀 비교해봐야 알 것 같습니다.
+- k8s의 경우 어느한 값이 App Name 과 Selector 등 여러 군데에서 사용되고, 이를 변경하다보면 실수를 자주하게 되는데, Helm을 통해 변수화시켜서 굉장히 편했습니다.
