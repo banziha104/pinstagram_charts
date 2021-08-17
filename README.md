@@ -2,6 +2,7 @@
 
 > Google Cloud Platform, Kubernetes, Helm 을 이용한 DevOps 프로젝트
 
+<br>
 
 ## Pinstagram 프로젝트
 
@@ -9,6 +10,8 @@
 - [🍃 Pinstagram WAS (Spring Boot)](https://github.com/banziha104/pinstagram-was)
 - [🚚 Pinstagram DevOps (GKE & K8s & Helm)](https://github.com/banziha104/pinstagram_charts)
 - [🕳 Pinstagram Socket (Node.js & Socket.io)](https://github.com/banziha104/pinstagram_socket)
+
+<br>
 
 ## 개요
 
@@ -23,15 +26,21 @@
 | DNS                     | Google ManagedCertificate            |                |
 | Database                | Google SQL                           |                |
 
+<br>
+
 ## Features
 
 - [Ingress](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/01_Ingress.md)
 - [Service](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/02_Service.md)
 - [Deployment](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/03_Deployment.md)
 
+<br>
+
 ## 전체 아키텍쳐
 
-- ![architecture](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/architecture.png)
+![architecture](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/architecture.png)
+
+<br>
 
 ## 기술부채
 
@@ -43,6 +52,8 @@
   - CI/CD : Jenkins와 GCP Pipeline을 이용한 배포 자동화 (비용문제가..)
   - Service Mash : istio (아직 GKE에서는 Beta)
   - Monitoring : Prometheus & Grafana(시각화)
+
+<br>
 
 ## Inpression
 
