@@ -1,6 +1,6 @@
 # Pinstagram Charts
 
-> Google Cloud Platform, Kubernetes, Helm 을 이용한 DevOps 프로젝트 
+> Google Cloud Platform, Kubernetes, Helm 을 이용한 DevOps 프로젝트
 
 
 ## Pinstagram 프로젝트
@@ -10,7 +10,7 @@
 - [🚚 Pinstagram DevOps (GKE & K8s & Helm)](https://github.com/banziha104/pinstagram_charts)
 - [🕳 Pinstagram Socket (Node.js & Socket.io)](https://github.com/banziha104/pinstagram_socket)
 
-## 개요 
+## 개요
 
 | 구분                      | 서비스                                  | 비고             |
 |-------------------------|--------------------------------------|----------------|
@@ -23,21 +23,21 @@
 | DNS                     | Google ManagedCertificate            |                |
 | Database                | Google SQL                           |                |
 
-## 전체 아키텍쳐
-
-- ![architecture](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/architecture.png)
-
 ## Features
 
 - [Ingress](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/01_Ingress.md)
-- [Service](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/02_Service.md) 
+- [Service](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/02_Service.md)
 - [Deployment](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/03_Deployment.md)
+
+## 전체 아키텍쳐
+
+- ![architecture](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/architecture.png)
 
 ## 기술부채
 
 > 적용할 예정이 있는 부분입니다
 
-- Develop 
+- Develop
   - Scaffold : 단일 컨테이너로는 사용해보았는데, Helm과 연동방법을 아직 찾지 못해서 미뤄두었습니다.
 - Production
   - CI/CD : Jenkins와 GCP Pipeline을 이용한 배포 자동화 (비용문제가..)
