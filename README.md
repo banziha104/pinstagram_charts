@@ -13,6 +13,16 @@
 
 <br>
 
+## 목차 
+
+- ### [개요](##개요)
+- ### [Features](##Features)
+- ### [전체 아키텍쳐](##전체 아키텍쳐)
+- ### [기술부채](##기술부채)
+- ### [후기](##후기)
+
+<br>
+
 ## 개요
 
 | 구분                      | 서비스                                  | 비고             |
@@ -28,7 +38,7 @@
 
 <br>
 
-## Features
+## 주요 구현 사항
 
 - #### [Ingress](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/01_Ingress.md)
 - #### [Service](https://github.com/banziha104/pinstagram_charts/blob/master/markdown/images/02_Service.md)
@@ -55,7 +65,7 @@
 
 <br>
 
-## Inpression
+## 후기
 
 - 평소에는 AWS를 이용하다 GCP를 이용해서 처음 개발해보았는데 생각보다 퍼포먼스가 나쁘지않습니다. 비용은 좀 비교해봐야 알 것 같습니다.
 - k8s의 경우 어느한 값이 App Name 과 Selector 등 여러 군데에서 사용되고, 이를 변경하다보면 실수를 자주하게 되는데, Helm을 통해 변수화시켜서 굉장히 편했습니다.
