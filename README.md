@@ -36,7 +36,7 @@
 | [TLS 인증서](https://github.com/banziha104/pinstagram_charts/blob/master/templates/managed_sertificate.yml)             | Google ManagedCertificate            |                |
 | DNS                     | Google ManagedCertificate            |                |
 | Database                | Google SQL                           |                |
-
+| Package Manager         | Helm                                 |                |
 <br>
 
 ## 주요 구현 사항
