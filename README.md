@@ -34,7 +34,7 @@
 | Container Repository    | Google Container Registry (GCR)      |                |
 | Load Balancer & Ingress | Google Global Static IP Name Ingress |                |
 | [TLS 인증서](https://github.com/banziha104/pinstagram_charts/blob/master/templates/managed_sertificate.yml)             | Google ManagedCertificate            |                |
-| DNS                     | Google ManagedCertificate            |                |
+| DNS                     | Google Cloud DNS                     |                |
 | Database                | Google SQL                           |                |
 | Package Manager         | Helm                                 |                |
 <br>
