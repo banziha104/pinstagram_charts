@@ -52,7 +52,7 @@ ssl:
   appName: cert-app
 
 images:
-  auth: gcr.io/eminent-nation-320908/pinstagram-auth:0.0.9
-  contents: gcr.io/eminent-nation-320908/pinstagram-contents:0.0.4
-  geo: gcr.io/eminent-nation-320908/pinstagram-geo:0.0.5
-  talk: gcr.io/eminent-nation-320908/pinstagram-talk:0.0.14
+  auth: gcr.io/eminent-nation-320908/pinstagram-auth:0.1.0
+  contents: gcr.io/eminent-nation-320908/pinstagram-contents:0.1.0
+  geo: gcr.io/eminent-nation-320908/pinstagram-geo:0.1.0
+  talk: gcr.io/eminent-nation-320908/pinstagram-talk:0.1.0
