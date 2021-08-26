@@ -11,7 +11,9 @@ app:
   geoApp: geo-app
   contentsApp: contents-app
   talkApp: talk-app
+  eventApp: event-app
   defaultApp: default-app
+
 
 service:
   defaultBackend: defaultbackend
@@ -20,22 +22,26 @@ service:
   contentsService: contents-service
   geoService: geo-service
   talkService: talk-service
+  eventService: event-service
 
 deploy:
   auth: auth-deploy
   contents: contents-deploy
   geo: geo-deploy
   talk: talk-deploy
+  event: event-deploy
 path:
   authPath: /auth/*
   contentsPath: /contents/*
   geoPath: /geometry/*
   talkPath: /talk/*
+  eventPath : /event/*
   healthCheck:
     authPath: /auth/healthCheck
     contentsPath: /contents/healthCheck
     geoPath: /geometry/healthCheck
     talkPath: /talk/healthCheck
+    eventPath: /event/healthCheck
 port:
   frontPort: 80
   defaultPort: 8080
@@ -43,6 +49,7 @@ port:
   contentsPort: 8082
   geoPort: 8083
   talkPort: 8084
+  eventPort: 8085
 
 tier:
   server: server
@@ -56,3 +63,4 @@ images:
   contents: gcr.io/eminent-nation-320908/pinstagram-contents:0.1.0
   geo: gcr.io/eminent-nation-320908/pinstagram-geo:0.1.0
   talk: gcr.io/eminent-nation-320908/pinstagram-talk:0.1.0
+  event: gcr.io/eminent-nation-320908/pinstagram-event:0.1.0

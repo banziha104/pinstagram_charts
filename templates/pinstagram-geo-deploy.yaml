@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Values.deploy.geo}}
+  name: {{.Values.deploy.event}}
   labels:
-    app: {{.Values.app.geoApp}}
+    app: {{.Values.app.eventApp}}
 spec:
   selector:
     matchLabels:
-      app: {{.Values.app.geoApp}}
+      app: {{.Values.app.eventApp}}
       tier: {{.Values.tier.server}}
   template:
     metadata:
       labels:
-        app: {{.Values.app.geoApp}}
+        app: {{.Values.app.eventApp}}
         tier: {{.Values.tier.server}}
     spec:
       containers:
-        - name: {{.Values.app.geoApp}}
-          image: {{.Values.images.geo}}
+        - name: {{.Values.app.eventApp}}
+          image: {{.Values.images.event}}
           ports:
-            - containerPort: {{.Values.port.geoPort}}
-              hostPort:  {{.Values.port.geoPort}}
+            - containerPort: {{.Values.port.eventPort}}
+              hostPort:  {{.Values.port.eventPort}}
           readinessProbe:
             periodSeconds: 60
             httpGet:
-              port: {{.Values.port.geoPort}}
-              path: {{.Values.path.healthCheck.geoPath}}
+              port: {{.Values.port.eventPort}}
+              path: {{.Values.path.healthCheck.eventPath}}
               scheme: HTTP
 

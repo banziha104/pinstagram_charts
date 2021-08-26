@@ -36,6 +36,11 @@ spec:
             backend:
               serviceName: {{.Values.service.talkService}}
               servicePort: {{.Values.port.talkPort}}
+          - path: {{.Values.path.eventPath}}
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: {{.Values.service.eventService}}
+              servicePort: {{.Values.port.eventPort}}
 ---
 apiVersion: v1
 kind: Service
@@ -101,4 +106,19 @@ spec:
     - port: {{.Values.port.talkPort}}
       targetPort: {{.Values.port.talkPort}}
       protocol: TCP
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.service.eventService}}
+  labels:
+    app: {{.Values.app.eventApp}}
+spec:
+  type : NodePort
+  selector:
+    app: {{.Values.app.eventApp}}
+    tier: {{.Values.tier.server}}
+  ports:
+    - port: {{.Values.port.eventPort}}
+      targetPort: {{.Values.port.eventPort}}
+      protocol: TCP

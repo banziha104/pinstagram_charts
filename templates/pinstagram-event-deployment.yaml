@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.deploy.geo}}
+  labels:
+    app: {{.Values.app.geoApp}}
+spec:
+  selector:
+    matchLabels:
+      app: {{.Values.app.geoApp}}
+      tier: {{.Values.tier.server}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.app.geoApp}}
+        tier: {{.Values.tier.server}}
+    spec:
+      containers:
+        - name: {{.Values.app.geoApp}}
+          image: {{.Values.images.geo}}
+          ports:
+            - containerPort: {{.Values.port.geoPort}}
+              hostPort:  {{.Values.port.geoPort}}
+          readinessProbe:
+            periodSeconds: 60
+            httpGet:
+              port: {{.Values.port.geoPort}}
+              path: {{.Values.path.healthCheck.geoPath}}
+              scheme: HTTP
+
