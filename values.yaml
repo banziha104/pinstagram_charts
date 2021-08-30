@@ -59,8 +59,8 @@ ssl:
   appName: cert-app
 
 images:
-  auth: gcr.io/eminent-nation-320908/pinstagram-auth:0.1.0
+  auth: gcr.io/eminent-nation-320908/pinstagram-auth:0.1.1
   contents: gcr.io/eminent-nation-320908/pinstagram-contents:0.1.0
   geo: gcr.io/eminent-nation-320908/pinstagram-geo:0.1.0
-  talk: gcr.io/eminent-nation-320908/pinstagram-talk:0.1.0
+  talk: gcr.io/eminent-nation-320908/pinstagram-talk:0.1.1
   event: gcr.io/eminent-nation-320908/pinstagram-event:0.1.0
